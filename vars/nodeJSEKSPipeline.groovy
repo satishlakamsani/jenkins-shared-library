@@ -18,6 +18,7 @@ def call(Map configMap){
         parameters {
             booleanParam(name: 'DEPLOY', defaultValue: false, description: 'Toggle this value')
         }
+        //Added stages
         stages {
             stage('Read version'){
                 steps {
@@ -28,6 +29,7 @@ def call(Map configMap){
                         // Access fields directly
                         appVersion = packageJson.version
                         echo "Building version ${appVersion}"
+                        
                         //sh 'printenv | sort'
                     }
                 }
